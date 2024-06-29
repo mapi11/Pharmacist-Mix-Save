@@ -13,12 +13,15 @@ public class PatientMovingController : MonoBehaviour
     private int _patientNumber;
     private bool _patientIsGoingHome;
 
+    public static bool PatientIsSpeak;
+
     
     private void Start()
     {
         _nextPatient = true;
         _patientNumber = 0;
         _patientIsGoingHome = false;
+        PatientIsSpeak = false;
     }
 
     private void Update()
@@ -47,6 +50,10 @@ public class PatientMovingController : MonoBehaviour
         {
             _speed += Time.fixedDeltaTime;
             _currentPatient.transform.position = Vector2.MoveTowards(_currentPatient.transform.position, _movePointsTransform[1].position, _speed * 0.0005f);
+        }
+        if (_currentPatient.transform.position == _movePointsTransform[1].position)
+        {
+            PatientIsSpeak = true;
         }
     }
 
