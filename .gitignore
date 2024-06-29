@@ -1,0 +1,68 @@
+###
+# Unity folders and files
+###
+[Aa]ssets/AssetStoreTools*
+[Bb]uild/
+[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Oo]bj/
+[Tt]emp/
+[Ll]ogs/
+[Uu]nityGenerated/
+# file on crash reports
+sysinfo.txt
+# Unity3D generated meta files
+*.pidb.meta
+
+# output
+Bin/
+
+###
+# VS/MD solution and project files
+###
+[Ee]xportedObj/
+*.booproj
+*.csproj
+*.sln
+*.suo
+*.svd
+*.unityproj
+*.user
+*.userprefs
+*.pidb
+.DS_Store
+
+###
+# OS generated
+###
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db.meta
+
+.idea
+
+Assets/Save/
+Assets/Save.meta
+Assets/_Temp/
+Assets/_Temp.meta
+
+Assets/StreamingAssets.meta
+Assets/StreamingAssets/aa/
+Assets/StreamingAssets/aa.meta
+Assets/AddressableAssetsData/Android/
+Assets/AddressableAssetsData/Android.meta
+Assets/AddressableAssetsData/iOS/
+Assets/AddressableAssetsData/iOS.meta
+
+ProjectSettings/RiderScriptEditorPersistedState.asset
+
+UserSettings/
+*.vsconfig
+
+# GitLab passed tests info file
+tests.xml
+tests.xml.meta
