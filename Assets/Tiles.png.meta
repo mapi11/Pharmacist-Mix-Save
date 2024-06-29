@@ -626,10 +626,10 @@ TextureImporter:
       name: Tiles_19
       rect:
         serializedVersion: 2
-        x: 241
-        y: 31
-        width: 14
-        height: 17
+        x: 242
+        y: 32
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -647,10 +647,10 @@ TextureImporter:
       name: Tiles_20
       rect:
         serializedVersion: 2
-        x: 257
-        y: 31
-        width: 14
-        height: 17
+        x: 258
+        y: 32
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -668,10 +668,10 @@ TextureImporter:
       name: Tiles_21
       rect:
         serializedVersion: 2
-        x: 273
-        y: 31
-        width: 14
-        height: 17
+        x: 274
+        y: 32
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -689,10 +689,10 @@ TextureImporter:
       name: Tiles_22
       rect:
         serializedVersion: 2
-        x: 289
-        y: 31
-        width: 14
-        height: 17
+        x: 290
+        y: 32
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -710,10 +710,10 @@ TextureImporter:
       name: Tiles_23
       rect:
         serializedVersion: 2
-        x: 305
-        y: 31
-        width: 14
-        height: 12
+        x: 306
+        y: 32
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -752,10 +752,10 @@ TextureImporter:
       name: Tiles_25
       rect:
         serializedVersion: 2
-        x: 242
-        y: 15
-        width: 12
-        height: 13
+        x: 243
+        y: 16
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -773,10 +773,10 @@ TextureImporter:
       name: Tiles_26
       rect:
         serializedVersion: 2
-        x: 258
-        y: 15
-        width: 12
-        height: 13
+        x: 259
+        y: 16
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -794,10 +794,10 @@ TextureImporter:
       name: Tiles_27
       rect:
         serializedVersion: 2
-        x: 274
-        y: 15
-        width: 12
-        height: 13
+        x: 275
+        y: 16
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -815,10 +815,10 @@ TextureImporter:
       name: Tiles_28
       rect:
         serializedVersion: 2
-        x: 290
-        y: 15
-        width: 12
-        height: 13
+        x: 291
+        y: 16
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -836,10 +836,10 @@ TextureImporter:
       name: Tiles_29
       rect:
         serializedVersion: 2
-        x: 306
-        y: 15
-        width: 12
-        height: 10
+        x: 307
+        y: 16
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -857,10 +857,10 @@ TextureImporter:
       name: Tiles_30
       rect:
         serializedVersion: 2
-        x: 243
+        x: 244
         y: 0
-        width: 9
-        height: 12
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -878,10 +878,10 @@ TextureImporter:
       name: Tiles_31
       rect:
         serializedVersion: 2
-        x: 259
+        x: 260
         y: 0
-        width: 9
-        height: 12
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -899,10 +899,10 @@ TextureImporter:
       name: Tiles_32
       rect:
         serializedVersion: 2
-        x: 275
+        x: 276
         y: 0
-        width: 9
-        height: 12
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -920,10 +920,10 @@ TextureImporter:
       name: Tiles_33
       rect:
         serializedVersion: 2
-        x: 291
+        x: 292
         y: 0
-        width: 9
-        height: 12
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -941,10 +941,10 @@ TextureImporter:
       name: Tiles_34
       rect:
         serializedVersion: 2
-        x: 307
+        x: 308
         y: 0
-        width: 9
-        height: 7
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

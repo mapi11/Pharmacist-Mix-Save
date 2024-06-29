@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4829035614131336347}
   - component: {fileID: 4829035614131336346}
   m_Layer: 0
-  m_Name: 5_Crescent-Moon_prefab
+  m_Name: 1_Ghostrifter_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 74b6ed564e7a56c4f8883acdfb7a4676, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c19e120198076cd498f8f4cc94b4daf9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

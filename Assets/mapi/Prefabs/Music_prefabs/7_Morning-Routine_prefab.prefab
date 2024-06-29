@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4829035614131336347}
   - component: {fileID: 4829035614131336346}
   m_Layer: 0
-  m_Name: 2_storm-clouds_prefab
+  m_Name: 7_Morning-Routine_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6a66e4fb539e04c48807a59fcdc6140f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6449a7894f4ff354d85afd705abe458a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

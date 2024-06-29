@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4829035614131336347}
   - component: {fileID: 4829035614131336346}
   m_Layer: 0
-  m_Name: 7_Water-wood-and-stone_prefab
+  m_Name: 8_Water-wood-and-stone_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

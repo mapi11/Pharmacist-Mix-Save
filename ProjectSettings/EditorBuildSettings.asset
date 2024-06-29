@@ -6,7 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/qwerta/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/mapi/MainMenu_scene.unity
+    guid: 1cea3e8d1d3320e43ade62f51ea01bba
+  - enabled: 1
+    path: Assets/mapi/Test_cene.unity
+    guid: 696f362bf1cd8bb4090a6f6178ff3d93
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 660dd975b434b9d41abea9d643ead88f, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 203f2a7fbd53a5d4b972df6ababaaf41, type: 2}
   m_UseUCBPForAssetBundles: 0

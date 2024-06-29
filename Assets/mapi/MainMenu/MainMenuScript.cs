@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using TMPro;
-//using DG.Tweening;
+using DG.Tweening;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -13,9 +13,9 @@ public class MainMenuScript : MonoBehaviour
 
     [Space]
     [Header("Main Buttons")]
-    [SerializeField] private Button _btnFirst;
-    [SerializeField] private Button _btnSecond;
-    [SerializeField] private Button _btnSettings;
+    [SerializeField] private Button _btnSettingsOpen;
+    [SerializeField] private Button _btnCloseSetting;
+    [Space]
     [SerializeField] private Button _btnQuit;
 
     [Space]
@@ -34,20 +34,29 @@ public class MainMenuScript : MonoBehaviour
 
     [Space]
     [Header("Windows")]
-    [SerializeField] private GameObject SettingsView;
+    [SerializeField] public GameObject SettingsView;
     [SerializeField] private GameObject LanguagesView;
     [SerializeField] public GameObject MusicView;
     [SerializeField] public GameObject InfoView;
+    [SerializeField] public GameObject LoadingView;
 
     int WindowInt = 0;
-    bool SettingsBool = true;
     string levelToLoad;
     CanvasGroup SettingsFade;
     CanvasGroup LanguagesFade;
     CanvasGroup MusicFade;
     CanvasGroup InfoFade;
-    float expandFadeDuration = 0.7f;
+    float expandFadeDuration = 0.35f;
     float OtherExpandFadeDuration = 0.2f;
+
+    float fade = 0.5f;
+
+    [Space]
+    [Header("Load Buttons")]
+    [SerializeField] private Button _btnPlay;
+
+    public string sceneNameInput;
+    public LoadScreenManager loadScreenManager;
 
     MenuMusicScript _menuMusicScript;
 
@@ -56,15 +65,17 @@ public class MainMenuScript : MonoBehaviour
         _menuMusicScript = FindObjectOfType<MenuMusicScript>();
 
         SetMusic(SavePrefScript.Load(SavePrefScript.PrefTypes.Music));
+        LocaleSelected(SavePrefScript.Load(SavePrefScript.PrefTypes.Languages));
 
-        SettingsFade = SettingsView.GetComponent<CanvasGroup>();
         LanguagesFade = LanguagesView.GetComponent<CanvasGroup>();
         MusicFade = MusicView.GetComponent<CanvasGroup>();
         InfoFade = InfoView.GetComponent<CanvasGroup>();
 
-        _btnFirst.onClick.AddListener(LoadLevelFirst);
-        _btnSecond.onClick.AddListener(LoadLevelSecond);
-        _btnSettings.onClick.AddListener(SettingsOpen);
+        _btnSettingsOpen.onClick.AddListener(SettingsOpen);
+        _btnCloseSetting.onClick.AddListener(SettingsClose);
+        _btnPlay.onClick.AddListener(OnLoadButtonClick);
+
+
         _btnQuit.onClick.AddListener(QuitGame);
 
         _btnDelSave.onClick.AddListener(DelSave);
@@ -92,41 +103,22 @@ public class MainMenuScript : MonoBehaviour
 
     private void SettingsOpen()
     {
-        if (SettingsBool != false)
-        {
-            //SettingsFade.DOFade(1f, expandFadeDuration).From(0f);
-            SettingsView.gameObject.SetActive(true);
-            SettingsBool = false;
-        }
-        else
-        {
-            StartCoroutine(FadeSettingsOpen());
-            //SettingsFade.DOFade(0, expandFadeDuration).From(1f);
-            //LanguagesFade.DOFade(0, OtherExpandFadeDuration).From(1f);
-            //MusicFade.DOFade(0, OtherExpandFadeDuration).From(1f);
-            //InfoFade.DOFade(0, OtherExpandFadeDuration).From(1f);
-            SettingsBool = true;
-
-            WindowInt = 0;
-            StopCoroutine(FadeSettingsOpen());
-        }
+        SettingsView.SetActive(true);
     }
-    IEnumerator FadeSettingsOpen()
+
+    private void SettingsClose()
     {
-        _btnSettings.onClick.RemoveListener(SettingsOpen);
-        yield return new WaitForSeconds(1f);
-        SettingsView.gameObject.SetActive(false);
-        LanguagesView.gameObject.SetActive(false);
+        SettingsView.SetActive(false);
         MusicView.gameObject.SetActive(false);
         InfoView.gameObject.SetActive(false);
-        _btnSettings.onClick.AddListener(SettingsOpen);
+        LanguagesView.gameObject.SetActive(false);
     }
 
     private void LanguagesOpen()
     {
         if (WindowInt != 3)
         {
-            //LanguagesFade.DOFade(1f, expandFadeDuration).From(0f);
+            LanguagesFade.DOFade(1f, expandFadeDuration).From(0f);
             LanguagesView.gameObject.SetActive(true);
             MusicView.gameObject.SetActive(false);
             InfoView.gameObject.SetActive(false);
@@ -135,7 +127,7 @@ public class MainMenuScript : MonoBehaviour
         else
         {
             StartCoroutine(FadeLanguagesOpenn());
-            //LanguagesFade.DOFade(0, expandFadeDuration).From(1f);
+            LanguagesFade.DOFade(0, expandFadeDuration).From(1f);
             WindowInt = 0;
             StopCoroutine(FadeLanguagesOpenn());
         }
@@ -143,7 +135,7 @@ public class MainMenuScript : MonoBehaviour
     IEnumerator FadeLanguagesOpenn()
     {
         _btnLanguages.onClick.RemoveListener(LanguagesOpen);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(fade);
         LanguagesView.gameObject.SetActive(false);
         MusicView.gameObject.SetActive(false);
         InfoView.gameObject.SetActive(false);
@@ -154,7 +146,7 @@ public class MainMenuScript : MonoBehaviour
     {
         if (WindowInt != 4)
         {
-            //MusicFade.DOFade(1f, expandFadeDuration).From(0f);
+            MusicFade.DOFade(1f, expandFadeDuration).From(0f);
             LanguagesView.gameObject.SetActive(false);
             MusicView.gameObject.SetActive(true);
             InfoView.gameObject.SetActive(false);
@@ -163,7 +155,7 @@ public class MainMenuScript : MonoBehaviour
         else
         {
             StartCoroutine(FadeMusicOpen());
-            //MusicFade.DOFade(0, expandFadeDuration).From(1f);
+            MusicFade.DOFade(0, expandFadeDuration).From(1f);
             WindowInt = 0;
             StopCoroutine(FadeMusicOpen());
         }
@@ -171,7 +163,7 @@ public class MainMenuScript : MonoBehaviour
     IEnumerator FadeMusicOpen()
     {
         _btnChangeMusic.onClick.RemoveListener(MusicOpen);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(fade);
         LanguagesView.gameObject.SetActive(false);
         MusicView.gameObject.SetActive(false);
         InfoView.gameObject.SetActive(false);
@@ -182,7 +174,7 @@ public class MainMenuScript : MonoBehaviour
     {
         if (WindowInt != 5)
         {
-            //InfoFade.DOFade(1f, expandFadeDuration).From(0f);
+            InfoFade.DOFade(1f, expandFadeDuration).From(0f);
             LanguagesView.gameObject.SetActive(false);
             MusicView.gameObject.SetActive(false);
             InfoView.gameObject.SetActive(true);
@@ -191,7 +183,7 @@ public class MainMenuScript : MonoBehaviour
         else
         {
             StartCoroutine(FadeInfoOpen());
-            //InfoFade.DOFade(0, expandFadeDuration).From(1f);
+            InfoFade.DOFade(0, expandFadeDuration).From(1f);
             WindowInt = 0;
             StopCoroutine(FadeInfoOpen());
         }
@@ -199,7 +191,7 @@ public class MainMenuScript : MonoBehaviour
     IEnumerator FadeInfoOpen()
     {
         _btnInfo.onClick.RemoveListener(InfoOpen);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(fade);
         LanguagesView.gameObject.SetActive(false);
         MusicView.gameObject.SetActive(false);
         InfoView.gameObject.SetActive(false);
@@ -224,14 +216,14 @@ public class MainMenuScript : MonoBehaviour
             _menuMusicScript._int = setMusic;
             _menuMusicScript.MakeMusic(setMusic);
 
-            _btnMusic[0].GetComponent<Image>().color = setMusic == 0 ? Color.gray : Color.white;
-            _btnMusic[1].GetComponent<Image>().color = setMusic == 1 ? Color.gray : Color.white;
-            _btnMusic[2].GetComponent<Image>().color = setMusic == 2 ? Color.gray : Color.white;
-            _btnMusic[3].GetComponent<Image>().color = setMusic == 3 ? Color.gray : Color.white;
-            _btnMusic[4].GetComponent<Image>().color = setMusic == 4 ? Color.gray : Color.white;
-            _btnMusic[5].GetComponent<Image>().color = setMusic == 5 ? Color.gray : Color.white;
-            _btnMusic[6].GetComponent<Image>().color = setMusic == 6 ? Color.gray : Color.white;
-            _btnMusic[7].GetComponent<Image>().color = setMusic == 7 ? Color.gray : Color.white;
+            _btnMusic[0].GetComponent<Image>().color = setMusic == 0 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[1].GetComponent<Image>().color = setMusic == 1 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[2].GetComponent<Image>().color = setMusic == 2 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[3].GetComponent<Image>().color = setMusic == 3 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[4].GetComponent<Image>().color = setMusic == 4 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[5].GetComponent<Image>().color = setMusic == 5 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[6].GetComponent<Image>().color = setMusic == 6 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[7].GetComponent<Image>().color = setMusic == 7 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
         }
     }
 
@@ -243,10 +235,8 @@ public class MainMenuScript : MonoBehaviour
 
     IEnumerator Start()
     {
-        // Wait for the localization system to initialize
         yield return LocalizationSettings.InitializationOperation;
 
-        // Generate list of available Locales
         var options = new List<TMP_Dropdown.OptionData>();
         int selected = 0;
         for (int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; ++i)
@@ -265,5 +255,19 @@ public class MainMenuScript : MonoBehaviour
     static void LocaleSelected(int index)
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+        SavePrefScript.Save(SavePrefScript.PrefTypes.Languages, index);
+    }
+
+    public void OnLoadButtonClick()
+    {
+        LoadingView.SetActive(true);
+
+        string sceneName = sceneNameInput;
+        loadScreenManager.LoadScene(sceneName);
+    }
+
+    public void OnReloadButtonClick()
+    {
+        loadScreenManager.ReloadScene();
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4829035614131336347}
   - component: {fileID: 4829035614131336346}
   m_Layer: 0
-  m_Name: 1_Moonlit-Walk_prefab
+  m_Name: 6_Crescent-Moon_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 80b1e8925813a6245941b09e415d21a8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 74b6ed564e7a56c4f8883acdfb7a4676, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
