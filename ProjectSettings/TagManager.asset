@@ -6,6 +6,11 @@ TagManager:
   tags:
   - res_0
   - res_1
+  - res_2
+  - res_3
+  - res_4
+  - bottle_0+0
+  - bottle_0+1
   layers:
   - Default
   - TransparentFX

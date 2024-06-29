@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class Bag : MonoBehaviour
 {
-    public string _acceptedTag;
-    public GameObject _resourcePrefab;
-    public int _resourceCount = 0;
-    public TextMeshProUGUI _resourceCountText; // Текстовый объект для отображения количества ресурсов
-    public Transform _resourceSpawnPoint; // Точка, где будет появляться ресурс
-    public GameObject _canvas;
+    [SerializeField] private string _acceptedTag;
+    [SerializeField] private GameObject _resourcePrefab;
+    [SerializeField] private int _resourceCount = 0;
+    [SerializeField] private TextMeshProUGUI _resourceCountText;
+    [SerializeField] private Transform _resourceSpawnPoint;
+    private GameObject _canvas;
+    public float launchForce = 10f; // Сила, с которой будет запускаться объект
 
     private void Start()
     {
         UpdateResourceCountText();
-
         _canvas = GameObject.Find("MainCanvas");
     }
 
@@ -32,7 +32,12 @@ public class Bag : MonoBehaviour
     {
         if (_resourceCount > 0)
         {
-            Instantiate(_resourcePrefab, _resourceSpawnPoint.position, Quaternion.identity, _canvas.transform);
+            GameObject resource = Instantiate(_resourcePrefab, _resourceSpawnPoint.position, Quaternion.identity, _canvas.transform);
+            Rigidbody2D rb = resource.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.AddForce(Vector2.left * launchForce, ForceMode2D.Impulse);
+            }
             _resourceCount--;
             Debug.Log("Resource removed. Current count: " + _resourceCount);
             UpdateResourceCountText();
