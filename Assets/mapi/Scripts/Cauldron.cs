@@ -6,6 +6,7 @@ public class Cauldron : MonoBehaviour
 {
     public string res0Tag = "res_0";
     public string res1Tag = "res_1";
+    public GameObject result999;
     public GameObject result0; // Объект, который появится при двух res_0
     public GameObject result1; // Объект, который появится при res_0 и res_1
     public Transform spawnPoint; // Точка, где будут появляться новые объекты
@@ -70,6 +71,11 @@ public class Cauldron : MonoBehaviour
             CreateResult(result1);
 
             Debug.Log("res_0 + res_1");
+        }
+        else
+        {
+            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag)));
+            CreateResult(result999);
         }
 
         foreach (var ingredient in ingredientsToRemove)
