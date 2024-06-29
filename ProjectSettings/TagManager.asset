@@ -11,6 +11,7 @@ TagManager:
   - res_4
   - bottle_0+0
   - bottle_0+1
+  - messageText
   layers:
   - Default
   - TransparentFX
