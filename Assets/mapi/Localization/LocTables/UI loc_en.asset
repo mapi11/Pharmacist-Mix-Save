@@ -46,6 +46,19 @@ MonoBehaviour:
     m_Localized: Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 376207233138688
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376938606510080
+    m_Localized: "Notre \xE9quipe est comme un m\xE9lange de scientifiques fous,
+      d\u2019artistes talentueux et de farceurs amusants, tout en un\_! Nous travaillons
+      avec plaisir pour vous proposer les aventures de jeu les plus excitantes.\r\nNous
+      avons essay\xE9 pour vous :\r\nDana : game designer, conceptrice narrative\r\nMaxim\_:\_Unity
+      \u2013 d\xE9veloppeur\r\nEvgeniy\_:\_Unity - d\xE9veloppeur\r\nVeronica : 2D
+      - artiste\r\nMatvey : concepteur sonore\r\nNotre devise : \xAB Pu pu puuu \xBB"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
