@@ -1,28 +1,76 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Cauldron : MonoBehaviour
 {
+    // Теги ресурсов
     public string res0Tag = "res_0";
     public string res1Tag = "res_1";
+    public string res2Tag = "res_2";
+    public string res3Tag = "res_3";
+    // Теги готовых ресурсов
+    public string bottle_0 = "bottle_0";
+    public string bottle_1 = "bottle_1";
+    public string bottle_2 = "bottle_2";
+
     public GameObject result999;
-    public GameObject result0; // Объект, который появится при двух res_0
-    public GameObject result1; // Объект, который появится при res_0 и res_1
-    public Transform spawnPoint; // Точка, где будут появляться новые объекты
-    public Button processButton; // Кнопка для обработки рецептов
+    public GameObject result0; // res_0 x 2
+    public GameObject result1; // res_0 + res_1
+    public GameObject result2; // res_0 + res_1
+
+    public Transform spawnPoint;
+    public Button processButton;
+
+    public bool _resInside;
+    public bool _anythingInside;
+
+    public float launchForce = 5f; // Сила запуска объекта
+
+    public GameObject FrontCauldron;
 
     private GameObject _canvas;
+    private CanvasGroup frontCauldronCanvasGroup;
+    private float targetAlpha = 0f;
+    private float fadeDuration = 5f;
 
     private List<GameObject> ingredients = new List<GameObject>();
 
     private void Start()
     {
-        _canvas = GameObject.Find("MainCanvas");
+        _canvas = GameObject.Find("ResContent");
 
-        if (processButton != null)
+        frontCauldronCanvasGroup = FrontCauldron.GetComponent<CanvasGroup>();
+
+        processButton.onClick.AddListener(ProcessIngredients);
+
+    }
+    private void Update()
+    {
+        if (_anythingInside || _resInside)
         {
-            processButton.onClick.AddListener(ProcessIngredients);
+            targetAlpha = 0.5f; // Прозрачность, к которой должен стремиться FrontCauldron
+
+            StartCoroutine(FadeFrontCauldron());
+        }
+        else
+        {
+            targetAlpha = 1f; // Прозрачность по умолчанию
+            StartCoroutine(FadeFrontCauldron());
+        }
+    }
+
+    IEnumerator FadeFrontCauldron()
+    {
+        float startAlpha = frontCauldronCanvasGroup.alpha;
+        float currentTime = 0f;
+
+        while (currentTime < fadeDuration)
+        {
+            currentTime += Time.deltaTime;
+            frontCauldronCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / fadeDuration);
+            yield return null;
         }
     }
 
@@ -32,7 +80,11 @@ public class Cauldron : MonoBehaviour
         {
             ingredients.Add(collision.gameObject);
             Debug.Log($"Ingredient added: {collision.tag}");
-
+            _resInside = true; // Устанавливаем булевую переменную в true при добавлении объекта
+        }
+        else
+        {
+            _anythingInside = true;
         }
     }
 
@@ -42,6 +94,11 @@ public class Cauldron : MonoBehaviour
         {
             ingredients.Remove(collision.gameObject);
             Debug.Log($"Ingredient removed: {collision.tag}");
+            _resInside = ingredients.Count > 0; // Проверяем, остались ли объекты в триггерной зоне
+        }
+        else
+        {
+            _anythingInside = false;
         }
     }
 
@@ -49,6 +106,7 @@ public class Cauldron : MonoBehaviour
     {
         int res0Count = 0;
         int res1Count = 0;
+
 
         List<GameObject> ingredientsToRemove = new List<GameObject>();
 
@@ -72,7 +130,7 @@ public class Cauldron : MonoBehaviour
 
             Debug.Log("res_0 + res_1");
         }
-        else
+        else if (_resInside == true)
         {
             ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag)));
             CreateResult(result999);
@@ -83,13 +141,22 @@ public class Cauldron : MonoBehaviour
             ingredients.Remove(ingredient);
             Destroy(ingredient);
         }
+
+        _resInside = ingredients.Count > 0; // Проверяем, остались ли объекты после обработки
     }
 
     private void CreateResult(GameObject result)
     {
         if (result != null)
         {
-            Instantiate(result, spawnPoint.position, Quaternion.identity, _canvas.transform);
+            GameObject newResult = Instantiate(result, spawnPoint.position, Quaternion.identity, _canvas.transform);
+
+            Rigidbody2D rb = newResult.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = new Vector2(Random.Range(1f, 2f), 1f) * launchForce; // Задаем случайное направление вправо и вверх
+            }
+
             Debug.Log($"Created result: {result.name}");
         }
     }

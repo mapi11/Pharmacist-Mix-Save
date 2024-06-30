@@ -9,9 +9,10 @@ TagManager:
   - res_2
   - res_3
   - res_4
-  - bottle_0+0
-  - bottle_0+1
   - messageText
+  - bottle_0
+  - bottle_1
+  - bottle_2
   layers:
   - Default
   - TransparentFX

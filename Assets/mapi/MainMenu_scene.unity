@@ -308,10 +308,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3310400502358243658, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_Size.y
+      value: 195.86633
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310400502358243658, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.6668396
+      objectReference: {fileID: 0}
     - target: {fileID: 4352187499455423808, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 411056894}
+    - target: {fileID: 5271960450646588092, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271960450646588092, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271960450646588092, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271960450646588092, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330144964866600715, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580875252750748776, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580875252750748776, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580875252750748776, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580875252750748776, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830625493361709203, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982498491721851328, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982498491721851328, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982498491721851328, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982498491721851328, guid: 23b57cafd0eb7794e8724ce5842045f9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

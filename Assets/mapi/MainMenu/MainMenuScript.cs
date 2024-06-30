@@ -93,6 +93,7 @@ public class MainMenuScript : MonoBehaviour
         _btnMusic[5].onClick.AddListener(() => SetMusic(5));
         _btnMusic[6].onClick.AddListener(() => SetMusic(6));
         _btnMusic[7].onClick.AddListener(() => SetMusic(7));
+        _btnMusic[7].onClick.AddListener(() => SetMusic(8));
     }
 
     private void QuitGame()
@@ -211,7 +212,7 @@ public class MainMenuScript : MonoBehaviour
     private void SetMusic(int setMusic)
     {
         SavePrefScript.Save(SavePrefScript.PrefTypes.Music, setMusic);
-        if (_menuMusicScript._int != setMusic)
+        if (_menuMusicScript._int != setMusic && _menuMusicScript._int != null)
         {
             _menuMusicScript._int = setMusic;
             _menuMusicScript.MakeMusic(setMusic);
@@ -224,6 +225,7 @@ public class MainMenuScript : MonoBehaviour
             _btnMusic[5].GetComponent<Image>().color = setMusic == 5 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
             _btnMusic[6].GetComponent<Image>().color = setMusic == 6 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
             _btnMusic[7].GetComponent<Image>().color = setMusic == 7 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            _btnMusic[8].GetComponent<Image>().color = setMusic == 7 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
         }
     }
 

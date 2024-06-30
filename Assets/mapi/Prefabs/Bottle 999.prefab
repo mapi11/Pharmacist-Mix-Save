@@ -61,14 +61,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6930148502292774571, guid: 8e6f741605ff4204981a418e0f21c1e0, type: 3}
+  m_Sprite: {fileID: -2012355622067969195, guid: 2c34771ac4ed3c048a21195549d3a157, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -139,6 +139,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 69, y: 87}
-  m_Direction: 0
+  m_Offset: {x: 0.4393236, y: 1.0600663}
+  m_Size: {x: 97.84093, y: 67.80363}
+  m_Direction: 1

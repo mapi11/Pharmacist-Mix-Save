@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6af595e8b58f8a04f8a042c6fe81697d
+guid: 45ce35bd0c9703e42bb314e169eadcb0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6029355896675028630
-    second: Scene background_0
+      213: 4851827574690395888
+    second: Bag_0_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scene background_0
+      name: Bag_0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 32
+        y: 23
+        width: 443
+        height: 455
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69ec8bd3e339ca350800000000000000
-      internalID: 6029355896675028630
+      spriteID: 0f6bddc1977255340800000000000000
+      internalID: 4851827574690395888
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Scene background_0: 6029355896675028630
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

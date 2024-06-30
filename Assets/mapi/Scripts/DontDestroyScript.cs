@@ -7,6 +7,8 @@ public class DontDestroyScript : MonoBehaviour
     private static DontDestroyScript instance;
     private void Awake()
     {
+        Application.targetFrameRate = 300;
+
         if (instance != null)
         {
             Destroy(gameObject);
