@@ -1,79 +1,88 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using DG.Tweening;
-using UnityEngine.EventSystems;
-using TMPro;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using DG.Tweening;
+//using UnityEngine.EventSystems;
+//using TMPro;
 
-public class MessageSpawnController : MonoBehaviour
-{
-    [SerializeField] private GameObject _messageObject;
-    [SerializeField] private GameObject _messageText;
-    [SerializeField] private string[] _messages;
-    [SerializeField] private Transform[] _routePoints;
-    public static bool _nextMessage;
-    private GameObject _currentMessageObject;
-    private GameObject _prevMessageObject;
-    private GameObject _mainCanvas;
-    private int _messageIndex = 0;
-    public static bool DeleteMessages;
+//public class MessageSpawnController : MonoBehaviour
+//{
+//    [SerializeField] private GameObject _mainCanvas;
+//    [SerializeField] private GameObject _currentMessageObject;
+//    [SerializeField] private GameObject _prevMessageObject;
+//    [SerializeField] private Transform[] _routePoints;
 
-    void Start()
-    {
-        _nextMessage = true;
-        _mainCanvas = GameObject.Find("MainCanvas");
-        DeleteMessages = false;
-    }
+//    [SerializeField] private string[] _messagesPatient1;
+//    [SerializeField] private string[] _messagesPatient2;
+//    [SerializeField] private string[] _messagesPatient3;
+//    private int _messageIndex = 0;
+//    private float typingSpeed = 0.15f;
 
-    private void Update()
-    {
-        MessageSpawn();
-        DeliteMessages();
-    }
+//    public static bool _nextMessage;
+//    public static bool DeleteMessages;
 
-    private void MessageSpawn()
-    {
-        if (_messageIndex < _messages.Length)
-        {
-            if (PatientMovingController.PatientIsSpeak && _nextMessage && _messageIndex == 0)
-            {
-                _currentMessageObject = Instantiate(_messageObject, _routePoints[0].position, Quaternion.identity, _mainCanvas.transform);
-                _nextMessage = false;
-                _messageText = GameObject.Find("messageText");
-                TextMeshProUGUI messageText = _currentMessageObject.GetComponentInChildren<TextMeshProUGUI>();
-                messageText.text = _messages[_messageIndex];
-                _messageIndex++;
-                Transform _curMessTrans = _currentMessageObject.GetComponent<Transform>();
-                _curMessTrans.DOMove(_routePoints[1].position, 2f);
-            }
-            if (PatientMovingController.PatientIsSpeak && _nextMessage && _messageIndex > 0)
-            {
-                Destroy(_prevMessageObject);
-                _prevMessageObject = _currentMessageObject;
-                _prevMessageObject.transform.DOMove(_routePoints[2].position, 2f);
-                _currentMessageObject = Instantiate(_messageObject, _routePoints[0].position, Quaternion.identity, _mainCanvas.transform);
-                _nextMessage = false;
-                _messageText = GameObject.Find("messageText");
-                TextMeshProUGUI messageText = _currentMessageObject.GetComponentInChildren<TextMeshProUGUI>();
-                messageText.text = _messages[_messageIndex];
-                _messageIndex++;
-                Transform _curMessTrans = _currentMessageObject.GetComponent<Transform>();
-                _curMessTrans.DOMove(_routePoints[1].position, 2f);
-            }
-        }
-        else
-        {
-            PatientMovingController.PatientIsSpeak = false;
-        }
-    }
+//    private GameObject _currentMessageText;
+//    private GameObject _prevMessageText;
 
-    private void DeliteMessages()
-    {
-        if (DeleteMessages)
-        {
-            Destroy(_prevMessageObject);
-            Destroy(_currentMessageObject);
-            Destroy(_messageObject);
-        }
-    }
-}
+//    private GameObject _currentMessage;
+//    private GameObject _prevMessage;
+
+//    void Start()
+//    {
+//        _nextMessage = true;
+//        DeleteMessages = false;
+//    }
+
+//    private void Update()
+//    {
+//        if (_messageIndex == _messagesPatient1.Length)
+//        {
+//            Debug.Log("123123123123123131231231231312");
+//        }
+//        MessageSpawn();
+//        DeliteMessages();
+        
+//    }
+
+//    private void MessageSpawn()
+//    {
+//        Debug.Log(_messageIndex);
+//        if (PatientMovingController.PatientIsSpeak && _nextMessage && _messageIndex == 0)
+//        {
+//            _prevMessage = null;
+//            _currentMessage = Instantiate(_currentMessageObject, _routePoints[0].position, Quaternion.identity, _mainCanvas.transform);
+//            _nextMessage = false;
+//            _currentMessageText = GameObject.Find("currentMessageText");
+//            TextMeshProUGUI messageText = _currentMessageText.GetComponent<TextMeshProUGUI>();
+//            StartCoroutine(TypeText(messageText, _messagesPatient1[_messageIndex]));
+//            _messageIndex++;
+//            _currentMessage.transform.DOMove(_routePoints[1].position, 2f);
+//        }
+//        if (PatientMovingController.PatientIsSpeak && _nextMessage && _messageIndex > 0)
+//        {
+//            TextMeshProUGUI messageText = _currentMessageText.GetComponent<TextMeshProUGUI>();
+//            StartCoroutine(TypeText(messageText, _messagesPatient1[_messageIndex]));
+//            _nextMessage = false;
+//            _messageIndex++;
+//        }
+//    }
+
+//    private IEnumerator TypeText(TextMeshProUGUI textComponent, string message)
+//    {
+//        textComponent.text = "";
+//        foreach (char letter in message.ToCharArray())
+//        {
+//            textComponent.text += letter;
+//            yield return new WaitForSeconds(typingSpeed);
+//        }
+//    }
+
+//    private void DeliteMessages()
+//    {
+//        if (DeleteMessages)
+//        {
+//            Destroy(_prevMessageObject);
+//            Destroy(_currentMessageObject);
+//        }
+//    }
+//}
