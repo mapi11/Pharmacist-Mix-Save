@@ -5,20 +5,18 @@ using UnityEngine;
 public class PatientSpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject[] _patients;
-    private GameObject _currentPatient;
     [SerializeField] private Transform _spawnPosition;
-    public static int _indexPatient;
     [SerializeField] private GameObject _mainCanvas;
 
+    private GameObject _currentPatient;
 
     private void Start()
     {
-        _indexPatient = 0;
-        SpawnPatient();
+        SpawnPatient(0);
     }
 
-    private void SpawnPatient()
+    public void SpawnPatient(int patientID)
     {
-        _currentPatient = Instantiate(_patients[_indexPatient], _spawnPosition.position, Quaternion.identity, _mainCanvas.transform);
+        _currentPatient = Instantiate(_patients[patientID], _spawnPosition.position, Quaternion.identity, _mainCanvas.transform);
     }
 }
