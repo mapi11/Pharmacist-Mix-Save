@@ -21,7 +21,7 @@ public class CameraSliderController : MonoBehaviour
         if (verticalSlider != null && mainCamera != null)
         {
             cameraStartY = mainCamera.transform.position.y;
-            cameraEndY = cameraStartY - 10.3f; // Adjust this value based on your needs
+            cameraEndY = cameraStartY - 10f; // Adjust this value based on your needs
             verticalSlider.onValueChanged.AddListener(OnSliderValueChanged);
         }
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using DG.Tweening;
 
 public class Cauldron : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class Cauldron : MonoBehaviour
     public string res2Tag = "res_2";
     public string res3Tag = "res_3";
     // Теги готовых ресурсов
-    public string bottle_0 = "bottle_0";
-    public string bottle_1 = "bottle_1";
-    public string bottle_2 = "bottle_2";
+    //public string bottle_0 = "bottle_0";
+    //public string bottle_1 = "bottle_1";
+    //public string bottle_2 = "bottle_2";
 
     public GameObject result999;
     public GameObject result0; // res_0 x 2
@@ -29,6 +30,8 @@ public class Cauldron : MonoBehaviour
     public float launchForce = 5f; // Сила запуска объекта
 
     public GameObject FrontCauldron;
+    [SerializeField] private Image frontCauldronImage;
+    [SerializeField] private Sprite newSprite;
 
     private GameObject _canvas;
     private CanvasGroup frontCauldronCanvasGroup;
@@ -42,6 +45,7 @@ public class Cauldron : MonoBehaviour
         _canvas = GameObject.Find("ResContent");
 
         frontCauldronCanvasGroup = FrontCauldron.GetComponent<CanvasGroup>();
+        frontCauldronImage.type = Image.Type.Filled;
 
         processButton.onClick.AddListener(ProcessIngredients);
 
@@ -76,7 +80,7 @@ public class Cauldron : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(res0Tag) || collision.CompareTag(res1Tag))
+        if (collision.CompareTag(res0Tag) || collision.CompareTag(res1Tag) || collision.CompareTag(res2Tag) || collision.CompareTag(res3Tag))
         {
             ingredients.Add(collision.gameObject);
             Debug.Log($"Ingredient added: {collision.tag}");
@@ -106,6 +110,8 @@ public class Cauldron : MonoBehaviour
     {
         int res0Count = 0;
         int res1Count = 0;
+        int res2Count = 0;
+        int res3Count = 0;
 
 
         List<GameObject> ingredientsToRemove = new List<GameObject>();
@@ -114,26 +120,30 @@ public class Cauldron : MonoBehaviour
         {
             if (ingredient.CompareTag(res0Tag)) res0Count++;
             if (ingredient.CompareTag(res1Tag)) res1Count++;
+            if (ingredient.CompareTag(res2Tag)) res2Count++;
+            if (ingredient.CompareTag(res3Tag)) res3Count++;
         }
 
-        if (res0Count == 2 && res1Count == 0)
+        if (res0Count == 3 && res1Count == 2 && res2Count == 2 && res3Count == 0) // bottle_0
         {
-            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag)));
+            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
             CreateResult(result0);
 
-            Debug.Log("res_0 + res_0");
+            Debug.Log("bottle_0");
         }
-        else if (res0Count == 1 && res1Count == 1)
+        else if (res0Count == 4 && res1Count == 2 && res2Count == 0 && res3Count == 3) //bottle_0
         {
-            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag)));
+            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
             CreateResult(result1);
 
-            Debug.Log("res_0 + res_1");
+            Debug.Log("bottle_1");
         }
         else if (_resInside == true)
         {
-            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag)));
+            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
             CreateResult(result999);
+
+            Debug.Log("res_999");
         }
 
         foreach (var ingredient in ingredientsToRemove)
@@ -149,15 +159,27 @@ public class Cauldron : MonoBehaviour
     {
         if (result != null)
         {
-            GameObject newResult = Instantiate(result, spawnPoint.position, Quaternion.identity, _canvas.transform);
+            // Replace the image sprite
+            frontCauldronImage.sprite = newSprite;
 
-            Rigidbody2D rb = newResult.GetComponent<Rigidbody2D>();
-            if (rb != null)
+            // Smoothly transition fillAmount from 0 to 1
+            frontCauldronImage.fillAmount = 0; // Start with fillAmount at 0
+            frontCauldronImage.DOFillAmount(1, 1f).SetEase(Ease.Linear).OnComplete(() =>
             {
-                rb.velocity = new Vector2(Random.Range(1f, 2f), 1f) * launchForce; // Задаем случайное направление вправо и вверх
-            }
+                // Create the result after the fillAmount animation completes
+                GameObject newResult = Instantiate(result, spawnPoint.position, Quaternion.identity, _canvas.transform);
 
-            Debug.Log($"Created result: {result.name}");
+                Rigidbody2D rb = newResult.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.velocity = new Vector2(Random.Range(1f, 2f), 1f) * launchForce; // Set a random launch direction
+                }
+
+                Debug.Log($"Created result: {result.name}");
+
+                // Smoothly transition fillAmount back from 1 to 0
+                frontCauldronImage.DOFillAmount(0, 1f).SetEase(Ease.Linear);
+            });
         }
     }
 }
