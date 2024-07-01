@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bfdf64881762c4d4cb07719f42eedada
+guid: 8447bb8b06bcf904da1de6a22d1a2fbd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3729293546331369342
-    second: TrashBox_0
+      213: -4573582371730073992
+    second: "\u0412\u043E\u0434\u044F\u043D\u043E\u0439_0"
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TrashBox_0
+      name: "\u0412\u043E\u0434\u044F\u043D\u043E\u0439_0"
       rect:
         serializedVersion: 2
-        x: 10
-        y: 78
-        width: 487
-        height: 341
+        x: 296
+        y: 22
+        width: 1490
+        height: 828
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28013cb3743ee3cc0800000000000000
-      internalID: -3729293546331369342
+      spriteID: 8765a06901f5780c0800000000000000
+      internalID: -4573582371730073992
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      TrashBox_0: -3729293546331369342
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

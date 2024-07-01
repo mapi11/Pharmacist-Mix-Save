@@ -51,6 +51,54 @@ MonoBehaviour:
     m_Key: txtInfo
     m_Metadata:
       m_Items: []
+  - m_Id: 547291521761280
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 547356869017600
+    m_Key: TitleMenthe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 547504055533568
+    m_Key: TitleLemon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 547800240504832
+    m_Key: TitleMillepertuis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 547903483297792
+    m_Key: TitleLavande
+    m_Metadata:
+      m_Items: []
+  - m_Id: 548200188362752
+    m_Key: TitleFroid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 548331646238720
+    m_Key: TitleHydropisie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 548487867285504
+    m_Key: TitleFurryiVirus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 548827949842432
+    m_Key: TitleRecept2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 548956295544832
+    m_Key: TitleRecept1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 549100692848640
+    m_Key: TitleRecept0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644319387992064
+    m_Key: TxtClient_0
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

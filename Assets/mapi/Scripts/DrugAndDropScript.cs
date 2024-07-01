@@ -4,8 +4,8 @@ public class DrugAndDropScript : MonoBehaviour
 {
     [SerializeField] private LayerMask _PhysicsLayer;
 
-    private float _damping = 1.0f;
-    private float _frequency = 5.0f;
+    public float _damping = 1.0f;
+    public float _frequency = 5.0f;
 
     private TargetJoint2D TargetJoint2D;
 

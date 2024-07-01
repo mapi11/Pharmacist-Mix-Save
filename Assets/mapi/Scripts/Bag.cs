@@ -78,6 +78,9 @@ public class Bag : MonoBehaviour
     private IEnumerator MoveResourceToA(GameObject resource)
     {
         _isMoving = true;
+
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
         Vector3 startPosition = resource.transform.position;
         Vector3 endPosition = _resourceTargetPointA.position;
         float elapsedTime = 0f;
@@ -102,6 +105,8 @@ public class Bag : MonoBehaviour
                 button.onClick.AddListener(() => OnButtonClick(resource));
             }
         }
+
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private void OnButtonClick(GameObject resource)
@@ -116,6 +121,8 @@ public class Bag : MonoBehaviour
 
     public IEnumerator MoveResourceToB(GameObject resource)
     {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
         _isMoving = true;
         Vector3 startPosition = resource.transform.position;
         Vector3 endPosition = _resourceTargetPointB.position;
@@ -130,6 +137,8 @@ public class Bag : MonoBehaviour
 
         resource.transform.position = endPosition;
         _isMoving = false;
+
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private void UpdateResourceCountText()
