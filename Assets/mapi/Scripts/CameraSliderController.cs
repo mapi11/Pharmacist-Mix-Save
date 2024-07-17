@@ -66,6 +66,9 @@ public class CameraSliderController : MonoBehaviour
 
     private IEnumerator SmoothSliderToTop()
     {
+        _btnUp.interactable = false;
+        _btnDown.interactable = false;
+
         float duration = 1f; // Duration for smooth scroll
         float elapsedTime = 0f;
         float startValue = verticalSlider.value;
@@ -79,6 +82,9 @@ public class CameraSliderController : MonoBehaviour
         }
 
         verticalSlider.value = 0f;
+
+        _btnUp.interactable = true;
+        _btnDown.interactable = true;
     }
 
     public void CameraDown()
@@ -91,6 +97,9 @@ public class CameraSliderController : MonoBehaviour
 
     private IEnumerator SmoothSliderToDown()
     {
+        _btnUp.interactable = false;
+        _btnDown.interactable = false;
+
         float duration = 1f; // Duration for smooth scroll
         float elapsedTime = 0f;
         float startValue = verticalSlider.value;
@@ -104,5 +113,8 @@ public class CameraSliderController : MonoBehaviour
         }
 
         verticalSlider.value = 1f;
+
+        _btnUp.interactable = true;
+        _btnDown.interactable = true;
     }
 }

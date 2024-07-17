@@ -87,14 +87,14 @@ public class MainMenuScript : MonoBehaviour
 
         _btnMusic[0].onClick.AddListener(() => SetMusic(0));
         _btnMusic[1].onClick.AddListener(() => SetMusic(1));
-        _btnMusic[2].onClick.AddListener(() => SetMusic(2));
-        _btnMusic[3].onClick.AddListener(() => SetMusic(3));
-        _btnMusic[4].onClick.AddListener(() => SetMusic(4));
-        _btnMusic[5].onClick.AddListener(() => SetMusic(5));
-        _btnMusic[6].onClick.AddListener(() => SetMusic(6));
-        _btnMusic[7].onClick.AddListener(() => SetMusic(7));
-        _btnMusic[8].onClick.AddListener(() => SetMusic(8));
-        _btnMusic[9].onClick.AddListener(() => SetMusic(9));
+        //_btnMusic[2].onClick.AddListener(() => SetMusic(2));
+        //_btnMusic[3].onClick.AddListener(() => SetMusic(3));
+        //_btnMusic[4].onClick.AddListener(() => SetMusic(4));
+        //_btnMusic[5].onClick.AddListener(() => SetMusic(5));
+        //_btnMusic[6].onClick.AddListener(() => SetMusic(6));
+        //_btnMusic[7].onClick.AddListener(() => SetMusic(7));
+        //_btnMusic[8].onClick.AddListener(() => SetMusic(8));
+        //_btnMusic[9].onClick.AddListener(() => SetMusic(9));
     }
 
     private void QuitGame()
@@ -220,14 +220,14 @@ public class MainMenuScript : MonoBehaviour
 
             _btnMusic[0].GetComponent<Image>().color = setMusic == 0 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
             _btnMusic[1].GetComponent<Image>().color = setMusic == 1 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[2].GetComponent<Image>().color = setMusic == 2 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[3].GetComponent<Image>().color = setMusic == 3 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[4].GetComponent<Image>().color = setMusic == 4 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[5].GetComponent<Image>().color = setMusic == 5 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[6].GetComponent<Image>().color = setMusic == 6 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[7].GetComponent<Image>().color = setMusic == 7 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[8].GetComponent<Image>().color = setMusic == 7 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
-            _btnMusic[9].GetComponent<Image>().color = setMusic == 7 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[2].GetComponent<Image>().color = setMusic == 2 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[3].GetComponent<Image>().color = setMusic == 3 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[4].GetComponent<Image>().color = setMusic == 4 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[5].GetComponent<Image>().color = setMusic == 5 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[6].GetComponent<Image>().color = setMusic == 6 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[7].GetComponent<Image>().color = setMusic == 7 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[8].GetComponent<Image>().color = setMusic == 8 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
+            //_btnMusic[9].GetComponent<Image>().color = setMusic == 9 ? new Color(127f / 255f, 101f / 255f, 84f / 255f) : new Color(185f / 255f, 147f / 255f, 122f / 255f);
         }
     }
 
