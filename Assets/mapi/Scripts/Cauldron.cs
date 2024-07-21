@@ -6,37 +6,42 @@ using DG.Tweening;
 
 public class Cauldron : MonoBehaviour
 {
-    // Теги ресурсов
-    public string res0Tag = "res_0";
-    public string res1Tag = "res_1";
-    public string res2Tag = "res_2";
-    public string res3Tag = "res_3";
-    // Теги готовых ресурсов
-    //public string bottle_0 = "bottle_0";
-    //public string bottle_1 = "bottle_1";
-    //public string bottle_2 = "bottle_2";
+    //[Header("Res tags")]
+    private string res0Tag = "res_0";
+    private string res1Tag = "res_1";
+    private string res2Tag = "res_2";
+    private string res3Tag = "res_3";
 
-    public GameObject result999;
-    public GameObject result0; // res_0 x 2
-    public GameObject result1; // res_0 + res_1
-    public GameObject result2; // res_0 + res_1
+    private string bottle999Tag = "bottle_999";
+    private string bottle0Tag = "bottle_0";
+    private string bottle1Tag = "bottle_1";
+    private string bottle2Tag = "bottle_2";
 
-    public Transform spawnPoint;
-    public Button processButton;
+    [Space]
+    [Header("Prefabs")]
+    [SerializeField] private GameObject result999;
+    [SerializeField] private GameObject result0;
+    [SerializeField] private GameObject result1;
+    [SerializeField] private GameObject result2;
 
-    public bool _resInside;
-    public bool _anythingInside;
+    [Space]
+    [Header("Prefab objects")]
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Button processButton;
 
-    public float launchForce = 5f; // Сила запуска объекта
-
-    public GameObject FrontCauldron;
+    [SerializeField] private GameObject FrontCauldron;
     [SerializeField] private Image frontCauldronImage;
     [SerializeField] private Sprite newSprite;
 
     private GameObject _canvas;
     private CanvasGroup frontCauldronCanvasGroup;
-    private float targetAlpha = 0f;
-    private float fadeDuration = 5f;
+
+    private float targetAlpha = 1f;
+
+    private bool _resInside;
+    private bool _anythingInside;
+
+    private float launchForce = 5f; // Сила запуска объекта
 
     private List<GameObject> ingredients = new List<GameObject>();
 
@@ -70,21 +75,27 @@ public class Cauldron : MonoBehaviour
         float startAlpha = frontCauldronCanvasGroup.alpha;
         float currentTime = 0f;
 
-        while (currentTime < fadeDuration)
+        while (currentTime < 5)
         {
             currentTime += Time.deltaTime;
-            frontCauldronCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / fadeDuration);
+            frontCauldronCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / 5);
             yield return null;
         }
     }
 
+    //IEnumerator FadeFrontCauldron()
+    //{
+    //    frontCauldronCanvasGroup.alpha = Mathf.Lerp(frontCauldronCanvasGroup.alpha, targetAlpha, 0);
+    //    yield return null;
+    //}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(res0Tag) || collision.CompareTag(res1Tag) || collision.CompareTag(res2Tag) || collision.CompareTag(res3Tag))
+        if (collision.CompareTag(res0Tag) || collision.CompareTag(res1Tag) || collision.CompareTag(res2Tag) || collision.CompareTag(res3Tag) || collision.CompareTag(bottle999Tag) || collision.CompareTag(bottle0Tag) || collision.CompareTag(bottle1Tag) || collision.CompareTag(bottle2Tag))
         {
             ingredients.Add(collision.gameObject);
             Debug.Log($"Ingredient added: {collision.tag}");
-            _resInside = true; // Устанавливаем булевую переменную в true при добавлении объекта
+            _resInside = true;
         }
         else
         {
@@ -124,14 +135,14 @@ public class Cauldron : MonoBehaviour
             if (ingredient.CompareTag(res3Tag)) res3Count++;
         }
 
-        if (res0Count == 3 && res1Count == 2 && res2Count == 2 && res3Count == 0) // bottle_0
+        if (res0Count == 3 && res1Count == 2 && res2Count == 2 && res3Count == 0)
         {
             ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
             CreateResult(result0);
 
             Debug.Log("bottle_0");
         }
-        else if (res0Count == 4 && res1Count == 2 && res2Count == 0 && res3Count == 3) //bottle_0
+        else if (res0Count == 4 && res1Count == 2 && res2Count == 0 && res3Count == 3)
         {
             ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
             CreateResult(result1);

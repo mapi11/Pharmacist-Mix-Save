@@ -96,6 +96,14 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4940862208674411278, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
+      propertyPath: resVFX
+      value: 
+      objectReference: {fileID: 3998247245025548657, guid: 04757030f57b822458d405fafb87a018, type: 3}
+    - target: {fileID: 4940862208674411278, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
+      propertyPath: replacementPrefab
+      value: 
+      objectReference: {fileID: 4970380159121996358, guid: a593af9221fda444e8c5fe675354753f, type: 3}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Size.x
       value: 17.35

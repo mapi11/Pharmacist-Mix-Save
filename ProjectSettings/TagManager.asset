@@ -13,6 +13,8 @@ TagManager:
   - bottle_0
   - bottle_1
   - bottle_2
+  - bottle_999
+  - Mortar
   layers:
   - Default
   - TransparentFX

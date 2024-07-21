@@ -96,21 +96,29 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4940862208674411278, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
+      propertyPath: resVFX
+      value: 
+      objectReference: {fileID: 3998247245025548657, guid: a941e6d855beaca4dba243c1e17b3a36, type: 3}
+    - target: {fileID: 4940862208674411278, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
+      propertyPath: replacementPrefab
+      value: 
+      objectReference: {fileID: 4710546673307035676, guid: 20299e84bc2ed6a4ca31912af40964a0, type: 3}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Size.x
-      value: 70.031624
+      value: 56.774517
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Size.y
-      value: 35.512737
+      value: 50.614864
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Offset.x
-      value: 0.6997145
+      value: 1.7672677
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Offset.y
-      value: -2.440846
+      value: 2.6964417
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Direction
@@ -119,14 +127,14 @@ PrefabInstance:
     - target: {fileID: 6920950297287743893, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7454904523882923911, guid: f70f29975c450ed468ce3a7bc368b031, type: 3}
+      objectReference: {fileID: 1196643277753997631, guid: 76b05d68ebc5a8b4ba1ff467134535cc, type: 3}
     - target: {fileID: 7245958135457987361, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Name
-      value: res_2
+      value: res_3
       objectReference: {fileID: 0}
     - target: {fileID: 7245958135457987361, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_TagString
-      value: res_2
+      value: res_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

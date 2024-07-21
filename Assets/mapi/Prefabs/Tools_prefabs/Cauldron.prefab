@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4071376335974218496}
   - component: {fileID: 6406533693661899709}
   m_Layer: 5
-  m_Name: GameObject (5)
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2292455150533455138}
   - component: {fileID: 3837427681529871942}
   m_Layer: 5
-  m_Name: GameObject (2)
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -15.4}
+  m_AnchoredPosition: {x: 0.25, y: 15}
   m_SizeDelta: {x: 84, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3051277883520403138
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 7102542965854590686}
   - component: {fileID: 5238367572169471395}
   m_Layer: 5
-  m_Name: GameObject (7)
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 3687204171481897839}
   - component: {fileID: 8587916824889785741}
   m_Layer: 5
-  m_Name: GameObject (3)
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 816384134536711189}
   - component: {fileID: 6587438321269321138}
   m_Layer: 5
-  m_Name: GameObject (8)
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 8554576200888916208}
   - component: {fileID: 5070822617990110167}
   m_Layer: 5
-  m_Name: GameObject (6)
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -814,19 +814,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19e42e21afb37e43b74a90e3e6a4371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  res0Tag: res_0
-  res1Tag: res_1
-  res2Tag: res_2
-  res3Tag: res_3
   result999: {fileID: 4710546673307035676, guid: 20299e84bc2ed6a4ca31912af40964a0, type: 3}
   result0: {fileID: 1551359941066066827, guid: 3a2b28fe90ab83845b8112355a384f28, type: 3}
   result1: {fileID: 3354084137428875743, guid: 61f70dfd32e05bd419f959c2789faa8a, type: 3}
   result2: {fileID: 3354084137428875743, guid: ffbc85b567091f640be357044074af03, type: 3}
   spawnPoint: {fileID: 3318715702409092615}
   processButton: {fileID: 7593769910937048889}
-  _resInside: 0
-  _anythingInside: 0
-  launchForce: 5
   FrontCauldron: {fileID: 0}
   frontCauldronImage: {fileID: 0}
   newSprite: {fileID: 7584699300430278401, guid: 40ffb5861d513424e80488ece09d36aa, type: 3}
@@ -867,8 +860,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 14.299995}
-  m_SizeDelta: {x: 84.5, y: 30}
+  m_AnchoredPosition: {x: 0, y: -2.2699966}
+  m_SizeDelta: {x: 84.5, y: 63.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7515611770545862853
 CanvasRenderer:
@@ -963,7 +956,7 @@ GameObject:
   - component: {fileID: 6219566763879488320}
   - component: {fileID: 4575856804774020440}
   m_Layer: 5
-  m_Name: GameObject (4)
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
