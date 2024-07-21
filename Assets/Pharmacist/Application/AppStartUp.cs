@@ -7,8 +7,7 @@ public class AppStartUp : MonoBehaviour
     [SerializeField] UIController uiController;
     private void Awake()
     {
-        Instantiate(uiController, uiController.transform.position, Quaternion.Euler(Vector3.zero));
-
+        var ui = Instantiate(uiController, uiController.transform.position, Quaternion.Euler(Vector3.zero));
+        ui.KickStart();
     }
-
 }

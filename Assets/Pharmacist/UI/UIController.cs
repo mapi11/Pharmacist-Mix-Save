@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] UIMainMenuScreen mainMenuScreen;
+    [SerializeField] UICustomerScreen customerScreen;
+    [SerializeField] UILaboratoryScreen laboratoryScreen;
+    public void KickStart()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        customerScreen.gameObject.SetActive(true);
     }
 }
