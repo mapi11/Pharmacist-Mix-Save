@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/mapi/Scenes/MainMenu_scene.unity
     guid: 1cea3e8d1d3320e43ade62f51ea01bba
   - enabled: 1
-    path: Assets/mapi/Scenes/Game_cene.unity
+    path: Assets/mapi/Scenes/Game_Scene.unity
     guid: 696f362bf1cd8bb4090a6f6178ff3d93
   - enabled: 1
     path: Assets/mapi/Scenes/Test_scene.unity

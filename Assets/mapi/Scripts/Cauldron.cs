@@ -33,6 +33,10 @@ public class Cauldron : MonoBehaviour
     [SerializeField] private Image frontCauldronImage;
     [SerializeField] private Sprite newSprite;
 
+    [Space]
+    [SerializeField] private float launchForce = 5f; // Сила запуска объекта
+    [SerializeField] private bool launchRight = true;
+
     private GameObject _canvas;
     private CanvasGroup frontCauldronCanvasGroup;
 
@@ -41,7 +45,6 @@ public class Cauldron : MonoBehaviour
     private bool _resInside;
     private bool _anythingInside;
 
-    private float launchForce = 5f; // Сила запуска объекта
 
     private List<GameObject> ingredients = new List<GameObject>();
 
@@ -183,7 +186,14 @@ public class Cauldron : MonoBehaviour
                 Rigidbody2D rb = newResult.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {
-                    rb.velocity = new Vector2(Random.Range(1f, 2f), 1f) * launchForce; // Set a random launch direction
+                    if (launchRight == true)
+                    {
+                        rb.velocity = new Vector2(Random.Range(1f, 2f), 1f) * launchForce;
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector2(Random.Range(1f, 2f), -1f) * -launchForce;
+                    }
                 }
 
                 Debug.Log($"Created result: {result.name}");
