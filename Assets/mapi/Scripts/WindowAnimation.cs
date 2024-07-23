@@ -10,13 +10,12 @@ public class WindowAnimation : MonoBehaviour
     [SerializeField] private GameObject window1;
     [SerializeField] private Vector2 PosWindow1;
     private GameObject newWindow1;
-    private bool isOpen;
-    private bool isClosing;
+    [HideInInspector]
+    public bool isOpen;
 
     [Header("Button")]
     [Space]
     [SerializeField] private Button btn1;
-    [SerializeField] private Button closeBtn1;
 
     [Space]
     [SerializeField] private Transform canvas;
@@ -24,8 +23,6 @@ public class WindowAnimation : MonoBehaviour
     private void Awake()
     {
         btn1.onClick.AddListener(() => windowOpenAnim(window1, PosWindow1));
-
-        closeBtn1.onClick.AddListener(() => windowCloseAnim(window1, PosWindow1));
     }
 
     private void windowOpenAnim(GameObject window, Vector2 vector)
