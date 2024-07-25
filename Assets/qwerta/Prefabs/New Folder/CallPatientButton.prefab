@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1772685741944810301}
   - component: {fileID: 1347813586526217230}
   - component: {fileID: 8922569891984650445}
+  - component: {fileID: -1190460206862400298}
   m_Layer: 5
   m_Name: CallPatientButton
   m_TagString: Untagged
@@ -122,9 +123,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PatientMovingController, Assembly-CSharp
-        m_MethodName: CallPatient
+      - m_Target: {fileID: -1190460206862400298}
+        m_TargetAssemblyTypeName: CallNexttPatient, Assembly-CSharp
+        m_MethodName: OnClickCallButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -134,6 +135,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-1190460206862400298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974827377671531926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda6c68745fe4ef48abd727a2ef16f25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8879613329072563598
 GameObject:
   m_ObjectHideFlags: 0

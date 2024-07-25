@@ -1,17 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PatientMovingController : MonoBehaviour
 {
+    [Header ("Кнопка вызова пациента")]
+    [SerializeField] private GameObject _callPatientButtonPrefab;
+    private GameObject _callPatientButton;
+    [SerializeField] private Transform _buttonPosition;
+    
+    private Transform _startPoint;
+    private Transform _finishPoint;
     [SerializeField] private GameObject[] _patients;
-    private int _currentPatient;
-    [SerializeField] private Transform _startPoint;
-    [SerializeField] private Transform _finishPoint;
     [SerializeField, Range(0, 1)] private float _speed;
     private bool _callPatient = false;
-    private bool _patientGoHome = false;
+    private int _currentPatient;
 
+    [HideInInspector]
+    public bool _patientGoHome = false;
+
+
+    private void Awake()
+    {
+        _callPatientButton = Instantiate(_callPatientButtonPrefab, _buttonPosition.position, Quaternion.identity, gameObject.transform);
+        _startPoint = GameObject.Find("StartPoint").transform;
+        _finishPoint = GameObject.Find("FinishPoint").transform;
+    }
 
     private void Update()
     {
@@ -30,6 +45,7 @@ public class PatientMovingController : MonoBehaviour
         if (_currentPatient < _patients.Length)
         {
             _callPatient = true;
+            _callPatientButton.SetActive(false);
             if (_patients[_currentPatient].transform.position == _finishPoint.position)
             {
                 _callPatient = false;
@@ -40,10 +56,6 @@ public class PatientMovingController : MonoBehaviour
                 _patients[_currentPatient].transform.position = Vector2.MoveTowards(_patients[_currentPatient].transform.position, _finishPoint.position, Time.fixedDeltaTime * _speed);
             }
         }
-        else
-        {
-            Debug.Log("Вы приняли всех пациентов на сегодня!");
-        }
     }
 
     public void PatientGoHome()
@@ -52,6 +64,7 @@ public class PatientMovingController : MonoBehaviour
         if (_patients[_currentPatient].transform.position == _startPoint.position)
         {
             _patientGoHome = false;
+            _callPatientButton.SetActive(true);
             Destroy(_patients[_currentPatient]);
             ++_currentPatient;
         }
