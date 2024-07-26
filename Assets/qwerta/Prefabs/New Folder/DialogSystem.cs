@@ -1,9 +1,12 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class DialogSystem : MonoBehaviour
 {
@@ -13,26 +16,42 @@ public class DialogSystem : MonoBehaviour
     private int _messageIndex;
     private GameObject _currentMessage;
     private TextMeshProUGUI _message_Text;
-    [SerializeField] private Transform _finishPoint;
-    [SerializeField] private GameObject _playerMessage;
+    private Transform _finishPoint;
+    private Transform _messagePoint;
     [SerializeField] private GameObject _giveMedsButton;
+
+    [Header ("Анимация диалоговых окон")]
+    [SerializeField, Range(0, 3)] public float ScaleSpeed;
+    [SerializeField, Range(5, 15)] public float PositionSpeed;
+    private bool _startAnimation = false;
+    private float _spaleParametr = 0;
 
 
     private void Awake()
     {
         _giveMedsButton.SetActive(false);
         _mainCanvas = GameObject.Find("MainCanvas");
+        _finishPoint = GameObject.Find("FinishPoint").transform;
+        _messagePoint = GameObject.Find("MessagePoint").transform;
     }
 
     private void Update()
     {
-        if (transform.position == _finishPoint.position && _messageIndex < _messageList.Length + 1)
+        if (transform.position == _finishPoint.position && _messageIndex == 0)
         {
-            _playerMessage.SetActive(true);
+            PatientSpeaking();
         }
-        else
+        
+        if (_startAnimation)
         {
-            _playerMessage.SetActive(false);
+            DialogAnimationScale();
+            DialogAnimationPosition();
+        }
+
+        if (_spaleParametr >= 1)
+        {
+            _startAnimation = false;
+            _spaleParametr = 0;
         }
     }
 
@@ -40,17 +59,20 @@ public class DialogSystem : MonoBehaviour
     {
         if (_messageIndex == 0)
         {
-            _currentMessage = Instantiate(_messagePanel, Vector2.zero, Quaternion.identity, _mainCanvas.transform);
+            _currentMessage = Instantiate(_messagePanel, _finishPoint.position, Quaternion.identity, _mainCanvas.transform);
+            _startAnimation = true;
+            DialogAnimationScale();
             MessageTextController();
-            _messageIndex++;
         }
         else
         {
             Destroy(_currentMessage);
-            _currentMessage = Instantiate(_messagePanel, Vector2.zero, Quaternion.identity, _mainCanvas.transform);
+            _currentMessage = Instantiate(_messagePanel, _finishPoint.position, Quaternion.identity, _mainCanvas.transform);
+            _startAnimation = true;
+            DialogAnimationScale();
             MessageTextController();
-            _messageIndex++;
         }
+        _messageIndex++;
     }
 
     private void MessageTextController()
@@ -63,7 +85,27 @@ public class DialogSystem : MonoBehaviour
         else
         {
             Destroy(_currentMessage);
-            _giveMedsButton.SetActive(true);
+            if (_messageIndex == _messageList.Length)
+            {
+                _giveMedsButton.SetActive(true);
+            }
+        }
+    }
+
+    private void DialogAnimationScale()
+    {
+        if (_currentMessage != null)
+        {
+            _currentMessage.transform.localScale = new Vector2(_spaleParametr, _spaleParametr);
+            _spaleParametr += Time.deltaTime * ScaleSpeed;
+        }
+    }
+
+    private void DialogAnimationPosition()
+    {
+        if (_currentMessage != null)
+        {
+            _currentMessage.transform.position = Vector2.MoveTowards(_currentMessage.transform.position, _messagePoint.position, Time.deltaTime * PositionSpeed);
         }
     }
 }
