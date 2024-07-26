@@ -9,7 +9,10 @@ public class WindowAnimation : MonoBehaviour
     [Space]
     [SerializeField] private GameObject window1;
     [SerializeField] private Vector2 PosWindow1;
+    [SerializeField] private float showSpeed = 1f;
+
     private GameObject newWindow1;
+
     [HideInInspector]
     public bool isOpen;
 
@@ -34,7 +37,7 @@ public class WindowAnimation : MonoBehaviour
 
             // Анимация выезда окна на экран
             windowTransform.anchoredPosition = vector;
-            windowTransform.DOAnchorPos(Vector2.zero, 1f).SetEase(Ease.OutBack);
+            windowTransform.DOAnchorPos(Vector2.zero, showSpeed).SetEase(Ease.OutBack);
 
             isOpen = true;
             newWindow1 = newWindow;
@@ -49,7 +52,7 @@ public class WindowAnimation : MonoBehaviour
             RectTransform windowTransform = newWindow1.GetComponent<RectTransform>();
 
             // Анимация ухода окна с экрана
-            windowTransform.DOAnchorPos(vector, 1f).SetEase(Ease.InBack).OnComplete(() => DestroyImmediate(windowTransform.gameObject));
+            windowTransform.DOAnchorPos(vector, showSpeed).SetEase(Ease.InBack).OnComplete(() => DestroyImmediate(windowTransform.gameObject));
 
             isOpen = false;
         }

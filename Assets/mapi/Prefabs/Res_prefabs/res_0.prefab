@@ -166,7 +166,7 @@ AudioSource:
   Priority: 157
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 460.4702
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -266,4 +266,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementPrefab: {fileID: 4970380159121996358, guid: 86618686b5537ee499d2277d1064e50f, type: 3}
-  resVFX: {fileID: 3998247245025548657, guid: 9ce0c03415e765047afb84b850c9ab27, type: 3}

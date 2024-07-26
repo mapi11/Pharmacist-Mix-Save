@@ -3,7 +3,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WindowCloseTest : MonoBehaviour
+public class WindowAnimationClose : MonoBehaviour
 {
     [SerializeField] private Button btnClose;
     [Space]
