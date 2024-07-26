@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class WindowAnimation : MonoBehaviour
     [Space]
     [SerializeField] private GameObject window1;
     [SerializeField] private Vector2 PosWindow1;
-    [SerializeField] private float showSpeed = 1f;
+    [SerializeField] private float showSpeed = 1.5f;
 
     private GameObject newWindow1;
 

@@ -8,6 +8,7 @@ public class WindowAnimationClose : MonoBehaviour
     [SerializeField] private Button btnClose;
     [Space]
     [SerializeField] private Vector2 PosClose;
+    [SerializeField] private float closeSpeed = 1.5f;
 
     WindowAnimation windowAnimation;
 
@@ -23,6 +24,6 @@ public class WindowAnimationClose : MonoBehaviour
         RectTransform windowTransform = gameObject.GetComponent<RectTransform>();
 
         // Анимация ухода окна с экрана
-        windowTransform.DOAnchorPos(vector, 1f).SetEase(Ease.InBack).OnComplete(() => DestroyImmediate(windowTransform.gameObject, windowAnimation.isOpen = false));
+        windowTransform.DOAnchorPos(vector, closeSpeed).SetEase(Ease.InBack).OnComplete(() => DestroyImmediate(windowTransform.gameObject, windowAnimation.isOpen = false));
     }
 }
