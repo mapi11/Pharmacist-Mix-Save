@@ -42,6 +42,7 @@ public class Cauldron : MonoBehaviour
 
     private float targetAlpha = 1f;
 
+    private bool _bottleInside;
     private bool _resInside;
     private bool _anythingInside;
 
@@ -60,7 +61,7 @@ public class Cauldron : MonoBehaviour
     }
     private void Update()
     {
-        if (_anythingInside || _resInside)
+        if (_anythingInside || _resInside || _bottleInside)
         {
             targetAlpha = 0.5f; // ѕрозрачность, к которой должен стремитьс€ FrontCauldron
 
@@ -94,7 +95,13 @@ public class Cauldron : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(res0Tag) || collision.CompareTag(res1Tag) || collision.CompareTag(res2Tag) || collision.CompareTag(res3Tag) || collision.CompareTag(bottle999Tag) || collision.CompareTag(bottle0Tag) || collision.CompareTag(bottle1Tag) || collision.CompareTag(bottle2Tag))
+        if (collision.CompareTag(bottle0Tag) || collision.CompareTag(bottle1Tag) || collision.CompareTag(bottle2Tag))
+        {
+            Debug.Log($"Bottle added: {collision.tag}");
+            _bottleInside = true;
+        }
+
+        if (collision.CompareTag(res0Tag) || collision.CompareTag(res1Tag) || collision.CompareTag(res2Tag) || collision.CompareTag(res3Tag))
         {
             ingredients.Add(collision.gameObject);
             Debug.Log($"Ingredient added: {collision.tag}");
@@ -108,6 +115,12 @@ public class Cauldron : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag(bottle0Tag) || collision.CompareTag(bottle1Tag) || collision.CompareTag(bottle2Tag))
+        {
+            Debug.Log($"Bottle added: {collision.tag}");
+            _bottleInside = false;
+        }
+
         if (ingredients.Contains(collision.gameObject))
         {
             ingredients.Remove(collision.gameObject);

@@ -15,6 +15,12 @@ TagManager:
   - bottle_2
   - bottle_999
   - Mortar
+  - ScalpelZone
+  - AntisepticZone
+  - Cursor
+  - BandageRight
+  - BandageLeft
+  - TriggerZone
   layers:
   - Default
   - TransparentFX
