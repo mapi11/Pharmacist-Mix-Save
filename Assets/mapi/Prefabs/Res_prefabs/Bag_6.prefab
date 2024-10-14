@@ -18,12 +18,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1421947130619516205, guid: c849bdcbc38bd9448b8b1ec0a9be6b31, type: 3}
       propertyPath: _acceptedTag
-      value: res_5
+      value: res_6
       objectReference: {fileID: 0}
     - target: {fileID: 1421947130619516205, guid: c849bdcbc38bd9448b8b1ec0a9be6b31, type: 3}
       propertyPath: _resourcePrefab
       value: 
-      objectReference: {fileID: 4970380159121996358, guid: 6bcb3ab9f77322846a85196cc2888d8a, type: 3}
+      objectReference: {fileID: 4970380159121996358, guid: 3ea5bff409f161a4b9ff8df5aa8601e3, type: 3}
     - target: {fileID: 2353013869682694817, guid: c849bdcbc38bd9448b8b1ec0a9be6b31, type: 3}
       propertyPath: m_Sprite
       value: 

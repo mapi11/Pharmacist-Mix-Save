@@ -19,6 +19,7 @@ public class Cauldron : MonoBehaviour
     private string bottle0Tag = "bottle_0";
     private string bottle1Tag = "bottle_1";
     private string bottle2Tag = "bottle_2";
+    private string bottle3Tag = "bottle_3";
 
     [Space]
     [Header("Prefabs")]
@@ -183,7 +184,7 @@ public class Cauldron : MonoBehaviour
         }
         else if (_resInside == true)
         {
-            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
+            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag) || ingredient.CompareTag(res4Tag) || ingredient.CompareTag(res5Tag) || ingredient.CompareTag(res6Tag)));
             CreateResult(result999);
 
             Debug.Log("res_999");

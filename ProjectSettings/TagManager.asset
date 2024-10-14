@@ -23,6 +23,7 @@ TagManager:
   - TriggerZone
   - res_5
   - res_6
+  - bottle_3
   layers:
   - Default
   - TransparentFX
