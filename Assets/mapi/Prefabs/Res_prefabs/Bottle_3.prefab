@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551359941066066827, guid: 3a2b28fe90ab83845b8112355a384f28, type: 3}
       propertyPath: m_TagString
-      value: bottle_2
+      value: bottle_3
       objectReference: {fileID: 0}
     - target: {fileID: 1859819851745308759, guid: 3a2b28fe90ab83845b8112355a384f28, type: 3}
       propertyPath: m_Pivot.x

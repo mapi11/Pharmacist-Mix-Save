@@ -27,6 +27,7 @@ public class Cauldron : MonoBehaviour
     [SerializeField] private GameObject result0;
     [SerializeField] private GameObject result1;
     [SerializeField] private GameObject result2;
+    [SerializeField] private GameObject result3;
 
     [Space]
     [Header("Prefab objects")]
@@ -175,12 +176,19 @@ public class Cauldron : MonoBehaviour
 
             Debug.Log("bottle_1");
         }
-        else if (res0Count == 0 && res1Count == 0 && res2Count == 0 && res3Count == 0 && res4Count == 5 && res5Count == 3 && res6Count == 4)
+        else if (res0Count == 0 && res1Count == 0 && res2Count == 0 && res3Count == 0 && res4Count == 0 && res5Count == 4 && res6Count == 2)
         {
             ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
-            CreateResult(result1);
+            CreateResult(result2);
 
             Debug.Log("bottle_2");
+        }
+        else if (res0Count == 1 && res1Count == 1 && res2Count == 1 && res3Count == 1 && res4Count == 1 && res5Count == 1 && res6Count == 1)
+        {
+            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
+            CreateResult(result3);
+
+            Debug.Log("bottle_3");
         }
         else if (_resInside == true)
         {
