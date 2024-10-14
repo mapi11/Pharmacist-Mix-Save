@@ -21,6 +21,8 @@ TagManager:
   - BandageRight
   - BandageLeft
   - TriggerZone
+  - res_5
+  - res_6
   layers:
   - Default
   - TransparentFX

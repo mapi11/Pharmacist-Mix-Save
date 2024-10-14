@@ -15,6 +15,8 @@ public class CameraHorizontallMove : MonoBehaviour
     [Header("MouseZoneWidth")]
     public float edgeZoneWidth = 200f;
 
+    public bool _canMoove;
+
     private Camera mainCamera;
 
     void Start()
@@ -24,34 +26,37 @@ public class CameraHorizontallMove : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        float screenWidth = Screen.width;
-
-        // ѕровер€ем, находитс€ ли курсор в левой зоне
-        if (mousePosition.x < edgeZoneWidth)
+        if (_canMoove == true)
         {
-            // ƒвижение камеры до левой границы
-            float distanceFromEdge = edgeZoneWidth - mousePosition.x;
-            float moveSpeed = Mathf.Lerp(minMoveSpeed, maxMoveSpeed, distanceFromEdge / edgeZoneWidth);
+         Vector3 mousePosition = Input.mousePosition;
+                float screenWidth = Screen.width;
 
-            // ƒвижение камеры до левой границы
-            if (transform.position.x > leftBoundary.position.x)
-            {
-                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-            }
-        }
-        // ѕровер€ем, находитс€ ли курсор в правой зоне
-        else if (mousePosition.x > screenWidth - edgeZoneWidth)
-        {
-            // ¬ычисл€ем скорость на основе рассто€ни€ до правой границы
-            float distanceFromEdge = mousePosition.x - (screenWidth - edgeZoneWidth);
-            float moveSpeed = Mathf.Lerp(minMoveSpeed, maxMoveSpeed, distanceFromEdge / edgeZoneWidth);
+                // ѕровер€ем, находитс€ ли курсор в левой зоне
+                if (mousePosition.x < edgeZoneWidth)
+                {
+                    // ƒвижение камеры до левой границы
+                    float distanceFromEdge = edgeZoneWidth - mousePosition.x;
+                    float moveSpeed = Mathf.Lerp(minMoveSpeed, maxMoveSpeed, distanceFromEdge / edgeZoneWidth);
 
-            // ƒвижение камеры до правой границы
-            if (transform.position.x < rightBoundary.position.x)
-            {
-                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            }
+                    // ƒвижение камеры до левой границы
+                    if (transform.position.x > leftBoundary.position.x)
+                    {
+                        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                    }
+                }
+                // ѕровер€ем, находитс€ ли курсор в правой зоне
+                else if (mousePosition.x > screenWidth - edgeZoneWidth)
+                {
+                    // ¬ычисл€ем скорость на основе рассто€ни€ до правой границы
+                    float distanceFromEdge = mousePosition.x - (screenWidth - edgeZoneWidth);
+                    float moveSpeed = Mathf.Lerp(minMoveSpeed, maxMoveSpeed, distanceFromEdge / edgeZoneWidth);
+
+                    // ƒвижение камеры до правой границы
+                    if (transform.position.x < rightBoundary.position.x)
+                    {
+                        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                    }
+                }
         }
     }
 }

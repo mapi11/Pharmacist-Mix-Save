@@ -2,27 +2,24 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Bag : MonoBehaviour
 {
-    [SerializeField] private string _acceptedTag;
+   [SerializeField] private string _acceptedTag;
     [SerializeField] private GameObject _resourcePrefab;
     [SerializeField] private int _resourceCount = 0;
     [SerializeField] private TextMeshProUGUI _resourceCountText;
-    [SerializeField] private Transform _resourceSpawnPoint;
-    [SerializeField] private Transform _resourceTargetPointA;
-    [SerializeField] private Transform _resourceTargetPointB;
-    [SerializeField] private GameObject buttonPrefab;
-    [SerializeField] private Transform buttonParent;
+    [SerializeField] private Transform _resourceSpawnPoint; // Точка спавна ресурса
+    [SerializeField] private Transform _resourceTargetPointA; // Целевая точка A
+    //[SerializeField] private GameObject buttonPrefab;
+    //[SerializeField] private Transform buttonParent;
     [SerializeField] private float moveDuration = 0.2f;
 
-    [SerializeField] private float SpawnPower = -4f;
-
-    private bool _isOnTable;
+    public bool _isOnTable;
     private bool _isMoving;
 
     private GameObject _canvas;
-    private GameObject _buttonInstance;
 
     CameraSliderController _sliderController;
 
@@ -50,99 +47,41 @@ public class Bag : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!_isMoving)
+        if (!_isMoving && _resourceCount > 0)
         {
-            if (_isOnTable)
-            {
-                if (_resourceCount > 0)
-                {
-                    _resourceCount--;
-                    Debug.Log("Resource removed. Current count: " + _resourceCount);
-                    UpdateResourceCountText();
+            _resourceCount--;
+            Debug.Log("Resource removed. Current count: " + _resourceCount);
+            UpdateResourceCountText();
 
-                    GameObject resource = Instantiate(_resourcePrefab, _resourceSpawnPoint.position, Quaternion.identity, _canvas.transform);
-                    Rigidbody2D rb = resource.GetComponent<Rigidbody2D>();
-                    if (rb != null)
-                    {
-                        rb.velocity = new Vector2(SpawnPower, 7f);
-                    }
-                }
-            }
-            else
-            {
-                StartCoroutine(MoveResourceToA(gameObject));
-            }
+            // Спавн ресурса на точке спавна
+            GameObject resource = Instantiate(_resourcePrefab, _resourceSpawnPoint.position, Quaternion.identity, _canvas.transform);
+
+            // Начало движения к целевой точке A
+            MoveResourceToTarget(resource, _resourceTargetPointA.position);
         }
     }
 
-    private IEnumerator MoveResourceToA(GameObject resource)
+    // Метод для перемещения ресурса к указанной цели
+    private void MoveResourceToTarget(GameObject resource, Vector3 targetPosition)
     {
-        _isMoving = true;
-
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-        Vector3 startPosition = resource.transform.position;
-        Vector3 endPosition = _resourceTargetPointA.position;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < moveDuration)
+        resource.transform.DOMove(targetPosition, moveDuration).SetEase(Ease.Linear).OnComplete(() =>
         {
-            resource.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / moveDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        resource.transform.position = endPosition;
-        _isMoving = false;
-        _isOnTable = true;
-
-        if (_buttonInstance == null)
+            Debug.Log("Resource reached the target point.");
+            // Дополнительная логика после достижения цели, если необходимо
+        });
+        
+        Rigidbody2D rb = resource.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            _buttonInstance = Instantiate(buttonPrefab, buttonParent);
-            Button button = _buttonInstance.GetComponent<Button>();
-            if (button != null)
-            {
-                button.onClick.AddListener(() => OnButtonClick(resource));
-            }
+            rb.velocity = Vector2.zero; // Останавливаем физическое движение после достижения цели
         }
+     }
 
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-    }
-
-    private void OnButtonClick(GameObject resource)
-    {
-        if (!_isMoving)
-        {
-            StartCoroutine(MoveResourceToB(resource));
-            _isOnTable = false;
-            Destroy(_buttonInstance);
-        }
-    }
-
-    public IEnumerator MoveResourceToB(GameObject resource)
-    {
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-        _isMoving = true;
-        Vector3 startPosition = resource.transform.position;
-        Vector3 endPosition = _resourceTargetPointB.position;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < moveDuration)
-        {
-            resource.transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / moveDuration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        resource.transform.position = endPosition;
-        _isMoving = false;
-
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-    }
-
-    private void UpdateResourceCountText()
-    {
-        _resourceCountText.text = _resourceCount.ToString();
-    }
+     private void UpdateResourceCountText()
+     {
+         if (_resourceCountText != null)
+         {
+             _resourceCountText.text = $"Resources: {_resourceCount}";
+         }
+     }
 }
