@@ -24,7 +24,7 @@ public class CheckMedicine : MonoBehaviour
 
     private void Awake()
     {
-        _mainCanvas = GameObject.Find("MainCanvas");
+        _mainCanvas = GameObject.Find("TestTableCanvas");
         _finishPoint = GameObject.Find("FinishPoint").transform;
         _messagePoint = GameObject.Find("MessagePoint").transform;
     }

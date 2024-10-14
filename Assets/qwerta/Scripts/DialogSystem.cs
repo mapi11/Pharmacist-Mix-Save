@@ -10,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 public class DialogSystem : MonoBehaviour
 {
-    private GameObject _mainCanvas;
+    private GameObject _longTableCanvas;
     [SerializeField] private GameObject _messagePanel;
     [SerializeField] private string[] _messageList;
     private int _messageIndex;
@@ -30,7 +30,7 @@ public class DialogSystem : MonoBehaviour
     private void Awake()
     {
         _giveMedsButton.SetActive(false);
-        _mainCanvas = GameObject.Find("MainCanvas");
+        _longTableCanvas = GameObject.Find("TestTableCanvas");
         _finishPoint = GameObject.Find("FinishPoint").transform;
         _messagePoint = GameObject.Find("MessagePoint").transform;
     }
@@ -59,7 +59,7 @@ public class DialogSystem : MonoBehaviour
     {
         if (_messageIndex == 0)
         {
-            _currentMessage = Instantiate(_messagePanel, _finishPoint.position, Quaternion.identity, _mainCanvas.transform);
+            _currentMessage = Instantiate(_messagePanel, _finishPoint.position, Quaternion.identity, _longTableCanvas.transform);
             _startAnimation = true;
             DialogAnimationScale();
             MessageTextController();
@@ -67,7 +67,7 @@ public class DialogSystem : MonoBehaviour
         else
         {
             Destroy(_currentMessage);
-            _currentMessage = Instantiate(_messagePanel, _finishPoint.position, Quaternion.identity, _mainCanvas.transform);
+            _currentMessage = Instantiate(_messagePanel, _finishPoint.position, Quaternion.identity, _longTableCanvas.transform);
             _startAnimation = true;
             DialogAnimationScale();
             MessageTextController();
