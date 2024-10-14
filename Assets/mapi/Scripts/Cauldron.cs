@@ -11,6 +11,9 @@ public class Cauldron : MonoBehaviour
     private string res1Tag = "res_1";
     private string res2Tag = "res_2";
     private string res3Tag = "res_3";
+    private string res4Tag = "res_4";
+    private string res5Tag = "res_5";
+    private string res6Tag = "res_6";
 
     private string bottle999Tag = "bottle_999";
     private string bottle0Tag = "bottle_0";
@@ -139,6 +142,9 @@ public class Cauldron : MonoBehaviour
         int res1Count = 0;
         int res2Count = 0;
         int res3Count = 0;
+        int res4Count = 0;
+        int res5Count = 0;
+        int res6Count = 0;
 
 
         List<GameObject> ingredientsToRemove = new List<GameObject>();
@@ -149,21 +155,31 @@ public class Cauldron : MonoBehaviour
             if (ingredient.CompareTag(res1Tag)) res1Count++;
             if (ingredient.CompareTag(res2Tag)) res2Count++;
             if (ingredient.CompareTag(res3Tag)) res3Count++;
+            if (ingredient.CompareTag(res4Tag)) res4Count++;
+            if (ingredient.CompareTag(res5Tag)) res5Count++;
+            if (ingredient.CompareTag(res6Tag)) res6Count++;
         }
 
-        if (res0Count == 3 && res1Count == 2 && res2Count == 2 && res3Count == 0)
+        if (res0Count == 2 && res1Count == 3 && res2Count == 2 && res3Count == 0 && res4Count == 0 && res5Count == 0 && res6Count == 0)
         {
             ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
             CreateResult(result0);
 
             Debug.Log("bottle_0");
         }
-        else if (res0Count == 4 && res1Count == 2 && res2Count == 0 && res3Count == 3)
+        else if (res0Count == 2 && res1Count == 4 && res2Count == 0 && res3Count == 3 && res4Count == 0 && res5Count == 0 && res6Count == 0)
         {
             ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
             CreateResult(result1);
 
             Debug.Log("bottle_1");
+        }
+        else if (res0Count == 0 && res1Count == 0 && res2Count == 0 && res3Count == 0 && res4Count == 5 && res5Count == 3 && res6Count == 4)
+        {
+            ingredientsToRemove.AddRange(ingredients.FindAll(ingredient => ingredient.CompareTag(res0Tag) || ingredient.CompareTag(res1Tag) || ingredient.CompareTag(res2Tag) || ingredient.CompareTag(res3Tag)));
+            CreateResult(result1);
+
+            Debug.Log("bottle_2");
         }
         else if (_resInside == true)
         {

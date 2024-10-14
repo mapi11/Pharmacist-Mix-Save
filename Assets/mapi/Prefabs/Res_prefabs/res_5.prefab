@@ -38,11 +38,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925341307508838726, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 925341307508838726, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 925341307508838726, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -106,19 +106,19 @@ PrefabInstance:
       objectReference: {fileID: 4710546673307035676, guid: 20299e84bc2ed6a4ca31912af40964a0, type: 3}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Size.x
-      value: 41.42389
+      value: 49.78711
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Size.y
-      value: 130.03766
+      value: 67.31445
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Offset.x
-      value: 5.8091736
+      value: 3.2358398
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Offset.y
-      value: -1.1733093
+      value: -1.3341064
       objectReference: {fileID: 0}
     - target: {fileID: 6450461276091326585, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Direction
@@ -127,14 +127,14 @@ PrefabInstance:
     - target: {fileID: 6920950297287743893, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e063be99858d70642a4458e221726690, type: 3}
+      objectReference: {fileID: 21300000, guid: 32cf523b5d634a049bd2ab1ff0aa180e, type: 3}
     - target: {fileID: 7245958135457987361, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_Name
       value: res_5
       objectReference: {fileID: 0}
     - target: {fileID: 7245958135457987361, guid: 2760f5ccc01c1df488e7856a4d4360bf, type: 3}
       propertyPath: m_TagString
-      value: res_3
+      value: res_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
