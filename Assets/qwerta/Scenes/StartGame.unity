@@ -128,6 +128,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1405712179}
     m_Modifications:
+    - target: {fileID: 1488095977685729018, guid: ca3e0a5879d696e4fbbbe0c39e90c44e, type: 3}
+      propertyPath: PositionSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1971788026476516085, guid: ca3e0a5879d696e4fbbbe0c39e90c44e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -238,6 +242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1405712179}
     m_Modifications:
+    - target: {fileID: 1488095977685729018, guid: 0045512d9a1400942861c0897b21f1a5, type: 3}
+      propertyPath: PositionSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1488095977685729018, guid: 0045512d9a1400942861c0897b21f1a5, type: 3}
       propertyPath: _messageList.Array.size
       value: 6
@@ -794,7 +802,7 @@ MonoBehaviour:
   - {fileID: 326986542}
   - {fileID: 156704465}
   - {fileID: 37369103}
-  _speed: 0.555
+  _speed: 0.607
   _patientGoHome: 0
 --- !u!1 &156704465 stripped
 GameObject:
@@ -949,6 +957,7 @@ MonoBehaviour:
   leftBoundary: {fileID: 65821119}
   rightBoundary: {fileID: 1623667374}
   edgeZoneWidth: 203.6
+  _canMoove: 0
 --- !u!1 &180976236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,7 +2940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -857, y: 441}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1340263219
